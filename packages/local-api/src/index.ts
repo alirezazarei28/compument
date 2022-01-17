@@ -1,10 +1,9 @@
+import express from "express";
+
 export const serve = (port: number, filename: string, dir: string) => {
-  console.log(
-    "serving on port: \n",
-    port,
-    "serving fetching from \n  ",
-    filename,
-    "file is in \n",
-    dir
-  );
+  const app = express();
+
+  return new Promise<void>((resolve, reject) => {
+    app.listen(port, resolve).on("error", reject);
+  });
 };
