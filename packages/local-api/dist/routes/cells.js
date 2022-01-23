@@ -26,6 +26,7 @@ const createCellsRouter = (filename, dir) => {
             res.send(JSON.parse(result));
         }
         catch (err) {
+            // @ts-ignore: Unreachable code error
             if (err.code === "ENOENT") {
                 promises_1.default.writeFile(fullPath, "[]", "utf-8");
                 res.send([]);
